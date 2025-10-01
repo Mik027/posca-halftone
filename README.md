@@ -1,5 +1,7 @@
 # POSCA Halftone (FR/EN)
 
+![](https://raw.githubusercontent.com/Mik027/posca-halftone/refs/heads/main/posca-halftone.jpg)
+
 ## FR
 
 - Description: Générateur halftone basé sur la palette POSCA. Chargez une image, sélectionnez les couleurs, ajustez l’échelle, la taille des points, la tolérance et la randomisation. Export PNG/SVG par couleur et en composite.
@@ -20,7 +22,7 @@ Ce projet est diffusé sous licence Creative Commons Attribution - Pas d’Utili
 - Vous devez créditer l’auteur: « Mik027 ».
 - Toute utilisation commerciale est interdite.
 
-Texte légal: voir `https://creativecommons.org/licenses/by-nc/4.0/deed.fr`.
+Texte légal: voir https://creativecommons.org/licenses/by-nc/4.0/deed.fr.
 
 ## EN
 
@@ -42,5 +44,6 @@ This project is licensed under Creative Commons Attribution - NonCommercial 4.0 
 - You must credit the author: “Mik027”.
 - Any commercial use is prohibited.
 
-Legal text: see `https://creativecommons.org/licenses/by-nc/4.0/`.
+Legal text: see https://creativecommons.org/licenses/by-nc/4.0/.
+
 
