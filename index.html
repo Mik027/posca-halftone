@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur halftone</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="topbar" style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
+        <h1 data-i18n="title">Générateur halftone</h1>
+        <div id="langSwitch" class="lang-switch" aria-label="Language">
+            <button class="lang-btn" data-lang="fr" title="Français" aria-pressed="false">
+                <img class="flag-img" src="fr.png" alt="Français" width="128" height="76">
+            </button>
+            <button class="lang-btn" data-lang="en" title="English" aria-pressed="false">
+                <img class="flag-img" src="en-us.png" alt="English" width="128" height="76">
+            </button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="color-selector">
+            <h2 data-i18n="colorSelectTitle">Sélectionnez les couleurs</h2>
+            <div id="color-list"></div>
+        </div>
+        
+        <div class="layers-manager">
+            <h2 data-i18n="layersManagerTitle">Gestion des calques</h2>
+            <div id="layers-list" class="layers-list"></div>
+        </div>
+
+        <div class="general-settings">
+            <h2 data-i18n="generalSettingsTitle">Réglages généraux</h2>
+            <div class="slider-container">
+                <label for="pointSize" data-i18n="scaleLabel">Échelle:</label>
+                <div class="slider-wrapper">
+                    <input type="range" id="pointSize" min="0.1" max="20" value="5" step="0.1">
+                    <span class="value">5.0px</span>
+                </div>
+            </div>
+            <div class="slider-container" id="pointSizeRangeContainer">
+                <label data-i18n="minmaxLabel">Taille min/max des points:</label>
+                <div class="slider-wrapper">
+                    <div class="double-slider">
+                        <input type="range" id="minPointSize" min="0.1" max="20" value="2" step="0.1">
+                        <input type="range" id="maxPointSize" min="0.1" max="20" value="8" step="0.1">
+                    </div>
+                    <span class="value">2.0px - 8.0px</span>
+                </div>
+            </div>
+            <div class="slider-container">
+                <label for="colorThreshold" data-i18n="toleranceLabel">Tolérance des couleurs:</label>
+                <div class="slider-wrapper">
+                    <div class="double-slider">
+                        <input type="range" id="colorThresholdMin" min="0" max="500" value="0">
+                        <input type="range" id="colorThresholdMax" min="0" max="500" value="150">
+                    </div>
+                    <span class="value">0-150</span>
+                </div>
+            </div>
+            <div class="slider-container" id="randomnessContainer">
+                <label for="randomness" data-i18n="randomnessLabel">Randomisation des points:</label>
+                <div class="slider-wrapper">
+                    <input type="range" id="randomness" min="0" max="100" value="0" step="1">
+                    <span class="value">0%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-controls">
+            <div class="file-upload-container">
+                <div class="file-upload-area" id="dropZone">
+                    <div class="file-upload-content">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <p data-i18n="uploadPrompt">Glissez votre image ici ou cliquez pour parcourir</p>
+                        <input type="file" id="imageInput" accept="image/*" hidden>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas-container">
+            <div class="canvas-wrapper">
+                <h3 data-i18n="originalImageTitle">Image originale</h3>
+                <canvas id="originalCanvas"></canvas>
+            </div>
+            <div class="canvas-wrapper">
+                <h3 data-i18n="processedImageTitle">Image traitée</h3>
+                <canvas id="previewCanvas"></canvas>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button id="download" data-i18n="downloadPng">Télécharger PNG</button>
+            <button id="downloadSvg" data-i18n="downloadSvg">Télécharger SVG</button>
+        </div>
+    </div>
+    <footer>
+        CC BY-NC 4.0 — Mik027
+    </footer>
+    <script src="script.js"></script>
+    <script src="jszip.min.js"></script>
+</body>
+</html> 
